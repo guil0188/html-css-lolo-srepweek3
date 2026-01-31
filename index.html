@@ -3,8 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Week 3</title>
+    <title>Week 3 Accessiblity stuff</title>
     <link rel="stylesheet" href="css/main.css" />
   </head>
-  <body></body>
+  <body>
+    <nav class="skiplinks" id="mainnav">
+      <!-- this nav will be hidden and only become visible when the user tabs to it (or focuses on it) -->
+      <ul>
+        <li><a href="#mainnav">Skip to navigation</a></li>
+        <li><a href="#maincontent">Skip to main content</a></li>
+        <li><a href="#footercontent">Skip to footer</a></li>
+      </ul>
+    </nav>
+    <header role="banner">
+      <h1>the title of the site</h1>
+      <nav role="navigation"></nav>
+    </header>
+    <main role="main" id="maincontent">
+      <form action="processform.php" method="get">
+        <!-- the action shows where the info goes when the form is submitted 
+             the get method shows how that data is sent 
+             get is sent in the query string, and is unsecure 
+              post is sent in a secure separate infor file -->
+        <label>
+          <span>User name:</span>
+          <input type="text" placeholder="user name" />
+        </label>
+      </form>
+      <article itemscope itemtype="https://schema.org/Person">
+        <!-- itemscope defines the container element for your info in schema itemtype defines wich schema you are using -->
+        <img
+          src="images/drill-monkey-01.avif"
+          alt="monkey lookin at camera"
+          aria-describedby="ricardoinfo"
+        />
+        <section id="ricardoinfo">
+          <p itemprop="givenName">Ricardo</p>
+          <p itemprop="birthDate">April 43, 1567</p>
+        </section>
+      </article>
+    </main>
+    <footer id="footercontent">
+      <!-- subscribe to newsletter link -->
+      <a href="#" aria-label="subscribe to newsletter">Subscribe!</a>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,21 @@
+img{
+    width: 800px;
+}
+ul{
+    list-style: none;
+}
+
+/* set the skip links nav to be postion relative, wo it will hold other elements with a positive porition property */
+.skiplinks ul{
+    position: relative;
+}
+.skiplinks a{
+    position: absolute;
+    top: -10em;
+}
+/* we can add "focus" pseudoclass, wich will show up when the element is selected including if the user tabs to it*/
+.skiplinks a:focus{
+    background-color: orange;
+    /* bring them back to the page when focused */
+    top: 0;
+}
